@@ -1,0 +1,2451 @@
+{
+  "_meta": {
+    "version": "2026-03-26",
+    "note": "版本 2026-03-26｜全板塊完整審查：新增群聯(8299)、力積電(6770)至記憶體板塊；新增光聖(6442)、聯亞(3081)至光通訊板塊；新增健策(3653)至散熱電源板塊；散熱板塊奇鋐/雙鴻 EPS 大幅上修（奇鋐 2026E EPS 81─93元、雙鴻 57.5元）；記憶體族群更新：旺宏揭 NOR Flash 定位、群聯 NAND AI SSD 爆發；光通訊族群更新：2026年CPO商轉元年，光聖為族群新領頭羊；台積電 4/16 法說日為近期最大催化劑。",
+    "lastUpdate": "股價自動更新：2026-03-26 by stock_updater.py",
+    "updateGuidelines": {
+      "description": "此檔案更新分工說明 ─ 請詳細閱讀後再操作",
+      "auto_by_python": {
+        "tool": "stock_updater.py",
+        "fields": [
+          "stocks[].price（現價，yfinance 自動抓取）",
+          "stocks[].updatedAt（更新日期）",
+          "stocks[].detail.technical.ma20/ma60/ma120（移動平均）",
+          "stocks[].detail.technical.rsi14（RSI 指標）",
+          "stocks[].detail.technical.support/resistance（近20日支撐壓力）",
+          "stocks[].detail.technical.trend（趨勢描述）",
+          "stocks[].detail.technical.updatedAt",
+          "_meta.lastUpdate（自動更新時間戳記）",
+          "_meta.version（更新日期）"
+        ],
+        "note": "執行 stock_updater.py 選取此 JSON 即可自動完成以上欄位，無需手動修改"
+      },
+      "manual_by_human": {
+        "frequency": "建議每週 1 次，或有重大法人報告時立即更新",
+        "fields": [
+          "stocks[].target（目標價）─ 依最新外資/內資報告共識調整",
+          "stocks[].pe（本益比）─ 依最新 EPS 預估及市場評價調整",
+          "stocks[].eps（EPS 預估）─ 依法人最新報告更新預估區間",
+          "stocks[].rating（評級）─ 首選/買進/觀察/持有/謹慎",
+          "stocks[].edge（核心優勢）─ 最新產業動態、訂單、技術進展",
+          "stocks[].risk（主要風險）─ 法人最新風險提示",
+          "stocks[].detail.financial.*（財務指標）",
+          "stocks[].detail.valuation.*（估值資訊）",
+          "stocks[].detail.ratings[]（各機構評級列表）",
+          "stocks[].detail.catalysts[]（催化劑）",
+          "stocks[].detail.risks[]（詳細風險）",
+          "_meta.note（版本摘要說明）"
+        ],
+        "sources": {
+          "外資": [
+            "Goldman Sachs",
+            "Morgan Stanley",
+            "JPMorgan",
+            "Citi",
+            "BofA",
+            "UBS",
+            "Macquarie",
+            "CLSA",
+            "Nomura",
+            "Mizuho",
+            "Daiwa"
+          ],
+          "內資": [
+            "元大投顧",
+            "凱基投顧",
+            "富邦投顧",
+            "國泰投顧",
+            "兆豐投顧",
+            "台新投顧",
+            "國票投顧"
+          ],
+          "產業研調": [
+            "IDC",
+            "Gartner",
+            "DIGITIMES Research",
+            "集邦科技 TrendForce",
+            "IEK工研院"
+          ],
+          "總經": [
+            "主計總處 GDP預估",
+            "中央銀行利率決策",
+            "Fed FOMC聲明",
+            "IMF世界展望"
+          ]
+        },
+        "ratingScale": {
+          "首選": "強烈推薦，多家外資共識買進，基本面+估值雙重確認",
+          "買進": "建議買進，目標價潛在漲幅 > 15%",
+          "加碼": "可加碼持有，近期有催化劑",
+          "觀察": "持續追蹤，等待更好買點或確認訂單",
+          "持有": "持股待漲，不建議追高",
+          "中立觀察": "法人評分偏中性，不積極推薦",
+          "次要": "次要配置，本益比低但成長性有限",
+          "謹慎": "估值偏高或基本面有疑慮，謹慎操作"
+        }
+      },
+      "doNotEdit": [
+        "stocks[].sector（板塊分類）",
+        "stocks[].sc（板塊ID）",
+        "stocks[].code（股票代號）",
+        "stocks[].name（股名）",
+        "sectors[]（板塊定義）"
+      ],
+      "versionNamingConvention": "data_YYYY-MM-DD.json（由 stock_updater.py 自動命名輸出）",
+      "addRemoveStocks": "新增或移除個股需同時更新 stocks[] 陣列，並在 _meta.note 記錄原因與日期"
+    }
+  },
+  "sectors": [
+    {
+      "id": "s0",
+      "label": "晶片製造"
+    },
+    {
+      "id": "s1",
+      "label": "ASIC設計"
+    },
+    {
+      "id": "s2",
+      "label": "AI伺服器"
+    },
+    {
+      "id": "s3",
+      "label": "先進封裝"
+    },
+    {
+      "id": "s4",
+      "label": "光通訊"
+    },
+    {
+      "id": "s5",
+      "label": "散熱電源"
+    },
+    {
+      "id": "s6",
+      "label": "記憶體"
+    },
+    {
+      "id": "s7",
+      "label": "PCB/載板"
+    }
+  ],
+  "stocks": [
+    {
+      "sector": "晶片製造",
+      "sc": "s0",
+      "name": "台積電",
+      "code": "2330",
+      "price": 1860.0,
+      "target": 2310,
+      "pe": 22,
+      "eps": "約83─98元（2026E；外資共識區間，多數預估 85─92 元）",
+      "rating": "首選",
+      "edge": "2nm+CoWoS全球獨佔；31位分析師全數強烈買進，共識目標2309元（高至2770元）；4/16法說為近期最大催化劑；AI算力唯一瓶頸",
+      "risk": "地緣政治、美對台出口管制擴大；4/16法說後獲利了結賣壓；本益比若衝30倍有修正風險",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "台灣積體電路製造股份有限公司",
+          "listed": "TWSE: 2330 / NYSE ADR: TSM",
+          "marketCap": "約新台幣47.7兆元（2026/03/24）",
+          "founded": "1987年",
+          "employees": "約73,000人",
+          "hq": "台灣新竹科學園區",
+          "fiscalYear": "1月─12月",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "revenue2025Q4": "337.3億美元（季增+14%，年增+25.5%）",
+          "netIncome2025Q4": "新台幣5,057億元（年增+35%）",
+          "grossMargin": "約59%（2025Q4）",
+          "eps2025": "約63.6元（2025全年預估）",
+          "eps2026E": "約83─98元（外資共識85─92元中位數）",
+          "dividendYield": "約1.2%（2026年預估）",
+          "capex2026E": "520─560億美元（主用於2nm擴產、CoWoS擴張）",
+          "aiRevenuePct": "AI加速器佔2025年總營收近20%，為成長最快終端市場",
+          "nextEarnings": "2026-04-16（Q1財報暨法說會）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約19─21倍（以1840元除以EPS 87元中位數）",
+          "targetPriceConsensus": "共識2309元（31位分析師），高至2770元（里昂）、低至1740元",
+          "targetHigh": "分析師最高目標價約新台幣2,700元（ADR 520美元）",
+          "analystRating": "31位分析師全數買進/強烈買進，0持有，0賣出（2026Q1）",
+          "upside": "約27%（以2026/03/24收盤1840元計算至均值目標2330元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約1873.5元",
+          "ma60": "約1765.0元",
+          "ma120": "約1,910元",
+          "rsi14": "約47.7（自動計算）",
+          "macdSignal": "MACD死叉後縮量，低檔黃金交叉醞釀中",
+          "support": "1750.0─1800.0元（近20日低點估算）",
+          "resistance": "1900.0─1950.0元（近20日高點估算）",
+          "volumeTrend": "2026/03/24 成交量正常，外資小幅買超",
+          "trend": "跌破MA20，短線偏弱；RSI 47.7 中性",
+          "note": "2026/03/25收盤1845元（漲逾3%），分析師稱月線收復為觀察重點"
+        },
+        "chip": {
+          "updatedAt": "2026-03-25",
+          "processes": [
+            "2nm（N2，2025末量產）",
+            "3nm（N3/N3E）",
+            "CoWoS先進封裝",
+            "SoIC 3D堆疊"
+          ],
+          "keyClients": [
+            "Apple（A系列/M系列）",
+            "NVIDIA（Blackwell/GB300）",
+            "AMD",
+            "Qualcomm",
+            "Google TPU"
+          ],
+          "moat": "全球唯一量產2nm廠商；CoWoS封裝基板一顆AI加速晶圓營收是手機晶圓5─10倍",
+          "expansion": "鳳凰城(美)、熊本(日)、德勒斯登(德)廠陸續建置中"
+        },
+        "ratings": [
+          {
+            "institution": "摩根大通 (JPMorgan)",
+            "rating": "增持 (Overweight)",
+            "target": "2,100元",
+            "date": "2026-03"
+          },
+          {
+            "institution": "高盛 (Goldman Sachs)",
+            "rating": "買進 (Buy)",
+            "target": "2,330元",
+            "date": "2026-03"
+          },
+          {
+            "institution": "里昂證券 (CLSA)",
+            "rating": "首選 (Outperform)",
+            "target": "3,030元（長線）",
+            "date": "2026-01"
+          },
+          {
+            "institution": "花旗 (Citi)",
+            "rating": "買進 (Buy)",
+            "target": "2,300元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "美銀 (BofA)",
+            "rating": "買進 (Buy)",
+            "target": "2,450元",
+            "date": "2026-03"
+          },
+          {
+            "institution": "麥格理 (Macquarie)",
+            "rating": "優於大盤",
+            "target": "2,150元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "4/16法說會─Q1財報及全年展望",
+          "2nm量產放量",
+          "CoWoS訂單2026年倍增",
+          "海外廠補貼落地",
+          "AI加速器佔總營收近20%持續擴張"
+        ],
+        "risks": [
+          "美中科技戰（出口管制擴大）",
+          "台海地緣政治",
+          "資本支出520─560億美元壓縮自由現金流",
+          "法說後獲利了結賣壓",
+          "本益比若突破30倍有估值修正風險"
+        ]
+      }
+    },
+    {
+      "sector": "晶片製造",
+      "sc": "s0",
+      "name": "聯電",
+      "code": "2303",
+      "price": 58.9,
+      "target": 63,
+      "pe": 15,
+      "eps": "約3.3─3.6元（2026E）",
+      "rating": "持有",
+      "edge": "成熟製程穩定，殖利率佳，估值合理",
+      "risk": "AI成長性低，中國成熟製程競爭加劇",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "聯華電子股份有限公司",
+          "listed": "TWSE: 2303 / NYSE ADR: UMC",
+          "marketCap": "約新台幣3,700億元",
+          "founded": "1980年",
+          "hq": "台灣新竹科學園區",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2025": "約3.1元",
+          "eps2026E": "約3.3─3.6元",
+          "grossMargin": "約33─35%",
+          "dividendYield": "約5─6%（高殖利率吸引力）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約14─16倍",
+          "targetPriceConsensus": "60─70元",
+          "analystRating": "多數持有，少數買進"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約60.5元",
+          "ma60": "約59.5元",
+          "support": "55.0─56.0元（近20日低點估算）",
+          "resistance": "64.0─65.0元（近20日高點估算）",
+          "rsi14": "約40.6（自動計算）",
+          "trend": "跌破MA20，短線偏弱；RSI 40.6 中性"
+        },
+        "ratings": [
+          {
+            "institution": "瑞銀 (UBS)",
+            "rating": "中性 (Neutral)",
+            "target": "60元",
+            "date": "2026-01"
+          },
+          {
+            "institution": "摩根大通",
+            "rating": "中性",
+            "target": "63元",
+            "date": "2026-02"
+          }
+        ],
+        "catalysts": [
+          "殖利率防禦性需求",
+          "成熟製程邊際改善"
+        ],
+        "risks": [
+          "中國SMIC 28nm競爭",
+          "AI題材缺席",
+          "產能利用率偏低"
+        ]
+      }
+    },
+    {
+      "sector": "ASIC設計",
+      "sc": "s1",
+      "name": "聯發科",
+      "code": "2454",
+      "price": 1625.0,
+      "target": 2100,
+      "pe": 22,
+      "eps": "約65─82元（2026E；AI ASIC挹注，外資持續上修）",
+      "rating": "買進",
+      "edge": "ASIC 2026H2爆發，Google TPU v7/v8 Ironwood主設計夥伴；2027年ASIC營收預估70─75億美元；22倍PE相對合理",
+      "risk": "估值偏高，手機AP面臨高通競爭，Q1淡季，2026H1催化劑尚未明顯",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "聯發科技股份有限公司",
+          "listed": "TWSE: 2454",
+          "marketCap": "約新台幣2.6兆元",
+          "founded": "1997年",
+          "hq": "台灣新竹",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2025": "約55─60元",
+          "eps2026E": "約65─82元（多家外資上修，AI ASIC挹注）",
+          "grossMargin": "約47─49%",
+          "asicRevenue2027E": "70─75億美元（ASIC業務；前次預估50億美元）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約20─25倍",
+          "targetPriceConsensus": "1,900─2,200元",
+          "upside": "約30%（至目標2100元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約1730.0元",
+          "ma60": "約1634.0元",
+          "support": "1550.0─1600.0元（近20日低點估算）",
+          "resistance": "1850.0─1900.0元（近20日高點估算）",
+          "rsi14": "約35.1（自動計算）",
+          "trend": "跌破MA20，短線偏弱；RSI 35.1 中性"
+        },
+        "chip": {
+          "updatedAt": "2026-03-25",
+          "products": [
+            "天璣（Dimensity）手機AP",
+            "Google TPU v7 Ironwood I/O設計參與",
+            "車用AI SoC"
+          ],
+          "keyClients": [
+            "Google（TPU v7/v8）",
+            "三星（手機AP）",
+            "小米、OPPO、vivo"
+          ],
+          "moat": "ASIC設計深度與台積電2nm合作關係；2026H2 ASIC爆量為確定性較高催化劑"
+        },
+        "ratings": [
+          {
+            "institution": "摩根士丹利 (Morgan Stanley)",
+            "rating": "增持",
+            "target": "2,100元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "高盛",
+            "rating": "買進",
+            "target": "2,200元",
+            "date": "2026-03"
+          },
+          {
+            "institution": "花旗",
+            "rating": "買進",
+            "target": "2,050元",
+            "date": "2026-02"
+          }
+        ],
+        "catalysts": [
+          "Google TPU v7量產啟動（2026H2）",
+          "ASIC業務大幅上修",
+          "AI邊緣運算滲透率上升"
+        ],
+        "risks": [
+          "高通在手機AP市場競爭",
+          "Q1淡季拖累獲利",
+          "記憶體漲價壓縮客戶需求"
+        ]
+      }
+    },
+    {
+      "sector": "ASIC設計",
+      "sc": "s1",
+      "name": "世芯-KY",
+      "code": "3661",
+      "price": 3135.0,
+      "target": 4500,
+      "pe": 35,
+      "eps": "約128─166元 (2026預估)",
+      "rating": "首選",
+      "edge": "ASIC爆發核心，高營業利益率，下半年展望佳",
+      "risk": "KY股流動性，估值已高，EPS預估有下修壓力",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "世芯電子-KY",
+          "listed": "TWSE: 3661",
+          "marketCap": "約新台幣4,900億元",
+          "hq": "台灣/美國雙總部",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約128─166元（年增50%+）",
+          "grossMargin": "約50─52%",
+          "operatingMargin": "約40%（業界頂尖）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約20─25倍（以EPS 130元計）",
+          "targetPriceConsensus": "4,000─4,800元",
+          "upside": "約38%（至目標4500元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約3235.2元",
+          "ma60": "約3339.0元",
+          "support": "2900.0─2950.0元（近20日低點估算）",
+          "resistance": "3400.0─3450.0元（近20日高點估算）",
+          "rsi14": "約44.7（自動計算）",
+          "trend": "空頭排列（跌破MA20/MA60）；RSI 44.7 中性"
+        },
+        "ratings": [
+          {
+            "institution": "摩根士丹利",
+            "rating": "增持",
+            "target": "4,500元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "凱基",
+            "rating": "買進",
+            "target": "4,200元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "2026H2 ASIC大單出貨",
+          "EPS年增確定性高",
+          "AI晶片ASIC化加速"
+        ],
+        "risks": [
+          "KY股溢價消散",
+          "單一大客戶集中度高",
+          "高本益比遇修正快速"
+        ]
+      }
+    },
+    {
+      "sector": "ASIC設計",
+      "sc": "s1",
+      "name": "創意電子",
+      "code": "3443",
+      "price": 2465.0,
+      "target": 3025,
+      "pe": 32,
+      "eps": "年增50%",
+      "rating": "觀察",
+      "edge": "台積電IP最深度夥伴，護城河極高",
+      "risk": "估值已高，等回檔布局",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "創意電子股份有限公司",
+          "listed": "TWSE: 3443",
+          "marketCap": "約新台幣3,600億元",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約75─85元（年增50%預估）",
+          "grossMargin": "約55%",
+          "moat": "台積電唯一授權IP設計夥伴，技術護城河最深"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約28─32倍",
+          "targetPriceConsensus": "2,800─3,100元"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約2433.2元",
+          "support": "2100.0─2150.0元（近20日低點估算）",
+          "resistance": "2700.0─2750.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 53.8 中性",
+          "ma60": "約2427.1元",
+          "rsi14": "約53.8（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "花旗",
+            "rating": "買進",
+            "target": "3,025元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "台積電2nm客戶增加帶動IP授權",
+          "ASIC設計服務需求擴大"
+        ],
+        "risks": [
+          "本益比偏高",
+          "台積電製程若受阻連帶影響"
+        ]
+      }
+    },
+    {
+      "sector": "AI伺服器",
+      "sc": "s2",
+      "name": "鴻海",
+      "code": "2317",
+      "price": 203.5,
+      "target": 290,
+      "pe": 15,
+      "eps": "約14─18元（2026E；部分內資已下修至16.96元，GB300良率因素）",
+      "rating": "買進",
+      "edge": "GB300整機櫃出貨核心廠；高盛目標400元；Meta/Google確定訂單；RSI超賣反彈機會",
+      "risk": "GB300出貨良率不如預期；內資下修目標278元；毛利率結構性偏低6─7%；近期股價回落至200元",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "鴻海精密工業股份有限公司",
+          "listed": "TWSE: 2317",
+          "marketCap": "約新台幣2.7兆元",
+          "founded": "1974年",
+          "employees": "約75萬人（全球）",
+          "hq": "台灣新北市",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2025": "約11─13元",
+          "eps2026E": "約14─18元（外資共識14─21元；部分內資下修至16.96元）",
+          "grossMargin": "約6─7%（代工毛利低但規模大）",
+          "aiServerRevenue2026E": "AI伺服器佔比上看35─40%，年翻倍成長"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約9─14倍",
+          "targetHigh": "高盛目標400元",
+          "targetPriceConsensus": "約270─320元",
+          "upside": "約56%（至目標305元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約214.2元",
+          "ma60": "約222.4元",
+          "support": "180.0─190.0元（近20日低點估算）",
+          "resistance": "230.0─240.0元（近20日高點估算）",
+          "rsi14": "約33.6（自動計算）",
+          "trend": "空頭排列（跌破MA20/MA60）；RSI 33.6 中性"
+        },
+        "chip": {
+          "updatedAt": "2026-03-25",
+          "products": [
+            "NVIDIA GB300整機櫃",
+            "AI伺服器機架ODM",
+            "電動車（EV）零組件"
+          ],
+          "keyClients": [
+            "NVIDIA",
+            "Meta",
+            "Google",
+            "Microsoft Azure"
+          ]
+        },
+        "ratings": [
+          {
+            "institution": "高盛 (Goldman Sachs)",
+            "rating": "買進",
+            "target": "400元",
+            "date": "2026-01"
+          },
+          {
+            "institution": "摩根大通 (JPMorgan)",
+            "rating": "增持",
+            "target": "300元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "美銀 (BofA)",
+            "rating": "買進",
+            "target": "310元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "國內金控投顧（綜合）",
+            "rating": "買進",
+            "target": "278元（從316元下修）",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "GB300出貨量倍增（2026H2）",
+          "Meta/Google AI資料中心擴建",
+          "EV業務貢獻"
+        ],
+        "risks": [
+          "毛利率結構性偏低",
+          "單一客戶NVIDIA集中風險",
+          "中東局勢影響市場情緒"
+        ]
+      }
+    },
+    {
+      "sector": "AI伺服器",
+      "sc": "s2",
+      "name": "廣達",
+      "code": "2382",
+      "price": 285.0,
+      "target": 385,
+      "pe": 14,
+      "eps": "約19─26元（2026E；法人共識21─25元，多家預估21.4元）",
+      "rating": "買進",
+      "edge": "Meta/Google深度綁定；法人EPS年增20%+；本益比14倍低估值；2026補漲機會最大",
+      "risk": "毛利薄，客戶集中",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "廣達電腦股份有限公司",
+          "listed": "TWSE: 2382",
+          "marketCap": "約新台幣1.9兆元",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約19─26元（多數法人共識21─25元）",
+          "grossMargin": "約7─8%",
+          "aiServerPct": "AI伺服器佔整體營收已逾40%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約11─15倍（本益比低，安全邊際高）",
+          "targetPriceConsensus": "340─385元",
+          "upside": "約30%（至目標370元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約287.5元",
+          "ma60": "約281.4元",
+          "support": "270.0─280.0元（近20日低點估算）",
+          "resistance": "290.0─300.0元（近20日高點估算）",
+          "rsi14": "約44.6（自動計算）",
+          "trend": "跌破MA20，短線偏弱；RSI 44.6 中性"
+        },
+        "ratings": [
+          {
+            "institution": "摩根大通 (JPMorgan)",
+            "rating": "增持",
+            "target": "375元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "美銀 (BofA)",
+            "rating": "買進",
+            "target": "385元",
+            "date": "2026-03"
+          },
+          {
+            "institution": "摩根士丹利",
+            "rating": "優於大盤",
+            "target": "330元",
+            "date": "2026-02"
+          }
+        ],
+        "catalysts": [
+          "Meta Llama訓練叢集擴建",
+          "Google AI資料中心訂單持續增加"
+        ],
+        "risks": [
+          "毛利薄弱，獲利對規模高度敏感",
+          "客戶過度集中Meta/Google"
+        ]
+      }
+    },
+    {
+      "sector": "AI伺服器",
+      "sc": "s2",
+      "name": "緯穎",
+      "code": "6669",
+      "price": 3580.0,
+      "target": 5500,
+      "pe": 13,
+      "eps": "約300─361元（2026E；2025全年275元高基期，2026成長率降至約15%）",
+      "rating": "首選",
+      "edge": "AWS Trainium ASIC獨家供貨；本益比13倍五哥中最低；2025全年EPS 275元",
+      "risk": "2025高基期，2026成長動能降至15%；AWS單一客戶集中；Q4 EPS季減需觀察",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "緯穎科技服務股份有限公司",
+          "listed": "TWSE: 6669",
+          "marketCap": "約新台幣1.1兆元",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約300─361元（外資預估；年增率約15%，低於2025年）",
+          "grossMargin": "約10─12%（高於同業）",
+          "aiRevenuePct2026E": "AI伺服器佔比上看60%",
+          "eps2025actual": "275.04元（2025全年已公布；Q4:74.21元，較Q3:82.92元季減）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約10─13倍（五哥中最低本益比）",
+          "targetPriceConsensus": "5,000─6,000元",
+          "upside": "約55%（至目標5900元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約3947.5元",
+          "ma60": "約3974.3元",
+          "support": "3500.0─3550.0元（近20日低點估算）",
+          "resistance": "4150.0─4200.0元（近20日高點估算）",
+          "rsi14": "約28.3（自動計算）",
+          "trend": "空頭排列（跌破MA20/MA60）；RSI 28.3 超賣區（反彈可期）"
+        },
+        "ratings": [
+          {
+            "institution": "摩根士丹利",
+            "rating": "首選 (Top Pick)",
+            "target": "5,900元",
+            "date": "2026-01"
+          },
+          {
+            "institution": "高盛",
+            "rating": "買進",
+            "target": "5,500元",
+            "date": "2026-02"
+          }
+        ],
+        "catalysts": [
+          "AWS Trainium ASIC獨家供貨",
+          "AI訓練叢集訂單大幅增加",
+          "EPS年增確定性最高"
+        ],
+        "risks": [
+          "AWS單一客戶過度集中",
+          "ASIC規格異動風險"
+        ]
+      }
+    },
+    {
+      "sector": "AI伺服器",
+      "sc": "s2",
+      "name": "緯創",
+      "code": "3231",
+      "price": 128.5,
+      "target": 190,
+      "pe": 11,
+      "eps": "約13─13.2元（2026E；年增約40%；法人共識）",
+      "rating": "買進",
+      "edge": "Compute Tray三大廠之一；本益比11倍低於鴻海(15)/廣達(14)；Dell積壓300億美元+訂單；AMD MI350/400主供應商",
+      "risk": "規模較小，毛利薄",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "緯創資通股份有限公司",
+          "listed": "TWSE: 3231",
+          "marketCap": "約新台幣4,500億元",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約13─13.2元（法人共識；年增約40%）",
+          "grossMargin": "約6─8%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約8─13倍",
+          "targetPriceConsensus": "160─185元",
+          "upside": "約38%"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "110.0─120.0元（近20日低點估算）",
+          "resistance": "120.0─130.0元（近20日高點估算）",
+          "rsi14": "約47.6（自動計算）",
+          "trend": "空頭排列（跌破MA20/MA60）；RSI 47.6 中性",
+          "ma20": "約130.6元",
+          "ma60": "約136.8元"
+        },
+        "ratings": [
+          {
+            "institution": "摩根大通",
+            "rating": "增持",
+            "target": "185元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "Dell積壓訂單300億美元+支撐2026業績",
+          "AMD MI350/MI400 Helios─緯創為AMD GPU主供應商",
+          "400G/800G交換器業務2026年預估成長10倍",
+          "緯穎子公司GB機櫃貢獻，T3架構2026年放量"
+        ],
+        "risks": [
+          "毛利薄",
+          "規模偏小競爭力較弱"
+        ]
+      }
+    },
+    {
+      "sector": "AI伺服器",
+      "sc": "s2",
+      "name": "信驊",
+      "code": "5274",
+      "price": 11500,
+      "target": 14000,
+      "pe": 130,
+      "eps": "約88元",
+      "rating": "觀察",
+      "edge": "BMC控制晶片台股股王，AI伺服器不可或缺，具獨占地位",
+      "risk": "估值極高，追高危險，P/E超過100倍",
+      "updatedAt": "2026-03-25",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "信驊科技股份有限公司",
+          "listed": "TWSE: 5274",
+          "marketCap": "約新台幣1.4兆元",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約88元",
+          "grossMargin": "約58─62%（IC設計高毛利）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約130倍（以11500元/88元計）",
+          "note": "本益比遠高於同業，需等待獲利大幅上修才能消化估值"
+        },
+        "technical": {
+          "updatedAt": "2026-03-25",
+          "support": "10,500─11,000元",
+          "resistance": "12,000─13,000元",
+          "trend": "股王高位震盪，散戶追高風險極高"
+        },
+        "ratings": [
+          {
+            "institution": "花旗",
+            "rating": "觀察",
+            "target": "14,000元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "AI伺服器BMC晶片滲透率持續提升",
+          "AST2700新代晶片出貨"
+        ],
+        "risks": [
+          "估值過高",
+          "競爭者追入BMC市場",
+          "高股價限制市場流動性"
+        ]
+      }
+    },
+    {
+      "sector": "先進封裝",
+      "sc": "s3",
+      "name": "日月光投控",
+      "code": "3711",
+      "price": 359.5,
+      "target": 420,
+      "pe": 22,
+      "eps": "約16─20元（2026E；CoWoS需求爆量年增50%以上）",
+      "rating": "買進",
+      "edge": "CoWoS封裝主力，多家外資推薦，先進封裝雙主軸（封測+CoWoS）",
+      "risk": "已上漲一段，估值中等",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "日月光半導體投資控股股份有限公司",
+          "listed": "TWSE: 3711 / NYSE ADR: ASX",
+          "marketCap": "約新台幣1.2兆元",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約16─20元（年增50%以上；先進封裝CoWoS為最大成長引擎）",
+          "grossMargin": "約20─22%",
+          "coWoSRevenue": "CoWoS相關封裝已成最大單一成長引擎"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約18─22倍",
+          "targetPriceConsensus": "390─430元",
+          "upside": "約25%"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約346.0元",
+          "support": "310.0─320.0元（近20日低點估算）",
+          "resistance": "370.0─380.0元（近20日高點估算）",
+          "rsi14": "約56.0（自動計算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 56.0 中性",
+          "ma60": "約309.7元"
+        },
+        "ratings": [
+          {
+            "institution": "摩根大通",
+            "rating": "增持",
+            "target": "420元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "高盛",
+            "rating": "買進",
+            "target": "430元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "CoWoS封裝需求2026年持續成長",
+          "SiP先進封裝訂單"
+        ],
+        "risks": [
+          "客戶訂單能見度有限",
+          "CoWoS擴產良率爬坡"
+        ]
+      }
+    },
+    {
+      "sector": "先進封裝",
+      "sc": "s3",
+      "name": "力成",
+      "code": "6239",
+      "price": 205.5,
+      "target": 190,
+      "pe": 10,
+      "eps": "約17元",
+      "rating": "次要",
+      "edge": "本益比最低，2025─2027 EPS成長148%，HBM測試受惠",
+      "risk": "成長性中等，規模較小",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "力成科技股份有限公司",
+          "listed": "TWSE: 6239",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約17元",
+          "grossMargin": "約25%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約9─11倍",
+          "targetPriceConsensus": "175─200元"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "180.0─190.0元（近20日低點估算）",
+          "resistance": "240.0─250.0元（近20日高點估算）",
+          "trend": "空頭排列（跌破MA20/MA60）；RSI 39.8 中性",
+          "ma20": "約213.2元",
+          "ma60": "約222.2元",
+          "rsi14": "約39.8（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "凱基",
+            "rating": "次要",
+            "target": "190元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "HBM記憶體封測需求",
+          "AI晶片封裝測試量增"
+        ],
+        "risks": [
+          "規模較日月光小",
+          "客戶集中度"
+        ]
+      }
+    },
+    {
+      "sector": "先進封裝",
+      "sc": "s3",
+      "name": "愛普",
+      "code": "6531",
+      "price": 524.0,
+      "target": 720,
+      "pe": 32,
+      "eps": "約16元",
+      "rating": "加碼",
+      "edge": "矽電容/WoW（Wafer-on-Wafer）技術，2027爆發可期",
+      "risk": "流動性偏低，小型股",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "愛普股份有限公司",
+          "listed": "TWSE: 6531",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約16元",
+          "grossMargin": "約40─45%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約32倍",
+          "targetPriceConsensus": "680─750元"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "390.0─400.0元（近20日低點估算）",
+          "resistance": "570.0─580.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 64.0 中性",
+          "ma20": "約485.0元",
+          "ma60": "約456.6元",
+          "rsi14": "約64.0（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "元大",
+            "rating": "加碼",
+            "target": "720元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "WoW 3D封裝量產（2027）",
+          "矽電容滲透率提升"
+        ],
+        "risks": [
+          "量產時程不確定",
+          "流動性不足"
+        ]
+      }
+    },
+    {
+      "sector": "光通訊",
+      "sc": "s4",
+      "name": "上詮",
+      "code": "3363",
+      "price": 688,
+      "target": 708,
+      "pe": null,
+      "eps": "2026E: 0.7元 → 2027E: 16.76元（大爆發）",
+      "rating": "首選",
+      "edge": "台積電COUPE唯一夥伴，22項關鍵專利；2026年CPO商轉元年（輝達Spectrum-X、博通Tomahawk 6採用）；大摩目標708元；2027 EPS爆增至16.76元；大摩預估CPO市場2030年CAGR達172%",
+      "risk": "2026上半年仍為過渡期（Q1為全年低點）；量產良率爬坡；CPO競爭者追入",
+      "updatedAt": "2026-03-25",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "上詮光纖通信股份有限公司",
+          "listed": "TWSE: 3363",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2025": "0.31元",
+          "eps2026E": "0.7元（大摩預估，翻倍成長）",
+          "eps2027E": "16.76元（大摩預估，2027年爆發性成長）",
+          "revenue2026Growth": "年增近三成（2026/02月營收數據）",
+          "cpo": "CPO（共封裝光學）佔比30%+，台積電矽光子生態系認證"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "targetPriceConsensus": "708元（大摩）",
+          "note": "大摩從607元大幅上調目標至708元，維持加碼評級；2027年EPS爆發後估值空間大"
+        },
+        "technical": {
+          "updatedAt": "2026-03-25",
+          "support": "650─670元",
+          "resistance": "730─760元",
+          "trend": "族群強勢輪動，大摩升評後股價上漲，關注量產進度催化"
+        },
+        "ratings": [
+          {
+            "institution": "摩根士丹利 (Morgan Stanley)",
+            "rating": "加碼 (Overweight)",
+            "target": "708元",
+            "date": "2026-03",
+            "note": "目標價從607元升至708元；看好CPO供應鏈核心受惠，2027年EPS達16.76元"
+          }
+        ],
+        "catalysts": [
+          "台積電COUPE合作案量產放量",
+          "1.6T─6.4T FAU產品線完整",
+          "AI資料中心高速互連需求爆發",
+          "輝達砸40億美元卡位光通訊利好整族群",
+          "2027年EPS爆發性成長"
+        ],
+        "risks": [
+          "2026上半年仍為過渡期（Q1為全年低點）",
+          "量產良率爬坡",
+          "競爭對手追入CPO市場"
+        ]
+      }
+    },
+    {
+      "sector": "光通訊",
+      "sc": "s4",
+      "name": "眾達-KY",
+      "code": "4977",
+      "price": 211.0,
+      "target": null,
+      "pe": 28,
+      "eps": "約5元",
+      "rating": "買進",
+      "edge": "族群本益比最低，博通插拔雷射獨家供應，Google TPU供應鏈",
+      "risk": "客戶集中博通單一",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "眾達國際光電-KY",
+          "listed": "TWSE: 4977",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約5元",
+          "grossMargin": "約30─35%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約28─30倍（光通訊族群最低）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "140.0─150.0元（近20日低點估算）",
+          "resistance": "200.0─210.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 66.8 中性",
+          "ma20": "約177.7元",
+          "ma60": "約147.3元",
+          "rsi14": "約66.8（自動計算）"
+        },
+        "ratings": [],
+        "catalysts": [
+          "博通插拔雷射獨家放量",
+          "Google TPU光模組需求"
+        ],
+        "risks": [
+          "博通客戶過度集中",
+          "KY股溢價消散風險"
+        ]
+      }
+    },
+    {
+      "sector": "光通訊",
+      "sc": "s4",
+      "name": "全新",
+      "code": "2455",
+      "price": 293.0,
+      "target": 148,
+      "pe": 30,
+      "eps": "2026E:4.88元，2027E:5.93元（大摩預估）",
+      "rating": "中立觀察",
+      "edge": "InP磊晶技術稀缺；2026毛利率衝破41.8%；MOCVD擴產至5台；AI光通訊占比持續提升；大摩上修基本目標148元（牛市253元）",
+      "risk": "大摩維持中立非買進；InP基板供應不穩；牛市/基本情境目標差距大（253元vs148元）",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "全新光電科技股份有限公司",
+          "listed": "TWSE: 2455",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2025": "約3.2元",
+          "eps2026E": "4.88元（大摩預估，年增53%）",
+          "eps2027E": "5.93元（大摩預估）",
+          "revenue2026E": "40.06億元（年增19%）",
+          "grossMargin2026E": "41.8%（突破40%，持續改善）",
+          "grossMargin2027E": "44%",
+          "expansion": "MOCVD擴產：原訂3台提升至5台，E-Beam設備1台，2027─2028年貢獻"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約50倍（以2026E EPS 4.88元計）",
+          "targetBull": "253元（牛市：LiDAR訂單增加、VCSEL市占擴大）",
+          "targetBase": "148元（基本：以2026E EPS 30倍計算）",
+          "targetBear": "88元（熊市：PA磊晶競爭加劇）",
+          "analystNote": "大摩維持中立，目標從130元升至148元（基本情境）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "180.0─190.0元（近20日低點估算）",
+          "resistance": "280.0─290.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 71.1 超買區",
+          "ma20": "約230.1元",
+          "ma60": "約187.1元",
+          "rsi14": "約71.1（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "摩根士丹利 (Morgan Stanley)",
+            "rating": "中立 (Equal-weight)",
+            "target": "148元（基本）/ 253元（牛市）/ 88元（熊市）",
+            "date": "2026-02",
+            "note": "上修目標從130元至148元；看好光通訊佔比提升與毛利改善"
+          },
+          {
+            "institution": "凱基",
+            "rating": "買進",
+            "target": "280元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "矽光子CPO需求爆發",
+          "毛利率改善至41.8%+",
+          "InP雷射供給缺口",
+          "MOCVD擴產5台（2027─2028）",
+          "輝達Coherent/Lumentum 40億美元卡位利好上游"
+        ],
+        "risks": [
+          "大摩中立非買進評級",
+          "InP基板供給不穩",
+          "牛熊市情境估值差異懸殊（88─253元）",
+          "高本益比"
+        ]
+      }
+    },
+    {
+      "sector": "光通訊",
+      "sc": "s4",
+      "name": "光聖",
+      "code": "6442",
+      "price": 2265.0,
+      "target": 1800,
+      "pe": 35,
+      "eps": "2025年EPS顯著成長；2026E持續強勁；2027E預估達116元",
+      "rating": "首選",
+      "edge": "Google TPU專用光纖線材獨家供應；2025年營收突破百億（100.5億），毛利率維持50%底線；2026Q3訂單極為穩定；子公司合聖擬2026H1 IPO；CPO族群領頭羊，外資持續加碼",
+      "risk": "估值已高，追高風險；股價波動劇烈，數次被列處置股；毛利結構高度依賴AI資料中心CSP訂單集中",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-26",
+        "basic": {
+          "fullName": "光聖科技股份有限公司",
+          "listed": "TWSE: 6442",
+          "updatedAt": "2026-03-26"
+        },
+        "financial": {
+          "updatedAt": "2026-03-26",
+          "revenue2025": "100.5億元（2025全年，突破百億門檻）",
+          "eps2025note": "稅前淨利從2024年14.2億元增至2025年23.78億元（年增67%）",
+          "eps2026E": "2026年業績超越2025之管理層展望（具體EPS待法說公布）",
+          "eps2027E": "116元（法人預估；三年營收與獲利增長五倍）",
+          "grossMargin": "約50%以上（2024年55.62%，2025年維持50%為底線目標）",
+          "aiRevenuePct": "光通訊產品佔比已從2024年65%提升至2025年80%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-26",
+          "pe2026E": "約30─35倍（成長股溢價合理）",
+          "targetPriceConsensus": "外資目標不一；法人看2027年EPS爆發後估值空間大",
+          "note": "光聖2024年全年飆漲約9倍，為台股第一飆股；2025年維持強勢；2026年訂單已確認穩定"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 62.5 中性",
+          "ma20": "約1941.8元",
+          "ma60": "約1645.3元",
+          "rsi14": "約62.5（自動計算）",
+          "support": "1600.0─1650.0元（近20日低點估算）",
+          "resistance": "2300.0─2350.0元（近20日高點估算）"
+        },
+        "ratings": [
+          {
+            "institution": "外資（綜合）",
+            "rating": "買進/首選",
+            "target": "長線看2027年EPS 116元評估",
+            "date": "2026-03",
+            "note": "CPO商轉元年，光聖為最純正受惠標的"
+          },
+          {
+            "institution": "法人共識",
+            "rating": "首選（CPO領頭羊）",
+            "target": "1,800元（參考目標）",
+            "date": "2026-03"
+          }
+        ],
+        "catalysts": [
+          "Google TPU光纖線材持續放量（2026Q3訂單已確認穩定）",
+          "子公司合聖IPO（2026H1，CPO專業化子公司）",
+          "2026年CPO商轉元年，受惠輝達Spectrum-X放量",
+          "菲律賓廠分散地緣風險，提升客戶信心",
+          "2027年EPS預估達116元，估值重評等空間"
+        ],
+        "risks": [
+          "估值已反映大部分成長，追高風險高",
+          "股價曾多次被列處置股，流動性短線受限",
+          "客戶集中度高（Google/Microsoft/Meta CSP）",
+          "高毛利吸引競爭者追入"
+        ]
+      }
+    },
+    {
+      "sector": "光通訊",
+      "sc": "s4",
+      "name": "聯亞",
+      "code": "3081",
+      "price": 400.0,
+      "target": 600,
+      "pe": 28,
+      "eps": "2025年EPS 4.66元（由虧轉盈）；2026E 持續大幅成長",
+      "rating": "買進",
+      "edge": "InP磊晶片核心供應商；2025年營收年增82%、由虧轉盈EPS 4.66元；2026年2月營收年增逾九成創近兩年單月新高；私募募資擴產支持；Datacom占比高，AI資料中心直接受惠",
+      "risk": "私募稀釋疑慮；InP基板供應不穩；規模較光聖小，客戶集中度風險",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-26",
+        "basic": {
+          "fullName": "聯亞光電股份有限公司",
+          "listed": "TWSE: 3081",
+          "updatedAt": "2026-03-26"
+        },
+        "financial": {
+          "updatedAt": "2026-03-26",
+          "eps2025": "4.66元（2025年全年，由虧轉盈）",
+          "revenue2025Growth": "年增82%（2025年；CPO/AI光通訊驅動）",
+          "revenue2026Feb": "2026年2月年增逾九成，創近兩年單月新高",
+          "eps2026E": "法人預估持續大幅成長（具體數字待更新）",
+          "grossMargin": "約49%（2025Q4；高毛利InP磊晶業務）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-26",
+          "pe2026E": "約20─30倍（成長股；由虧轉盈後估值重評等）",
+          "targetPriceConsensus": "500─650元（法人參考區間）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "trend": "CPO族群內強勢個股，外資與投信追籌碼；等待回檔布局"
+        },
+        "ratings": [
+          {
+            "institution": "法人共識",
+            "rating": "買進",
+            "target": "600元（參考）",
+            "date": "2026-03",
+            "note": "由虧轉盈+營收爆發是核心投資邏輯"
+          }
+        ],
+        "catalysts": [
+          "2026年2月營收年增逾九成創新高",
+          "CPO商轉元年─InP磊晶片為核心原材料",
+          "私募擴產提升產能應對AI資料中心需求",
+          "Datacom業務占比高，AI伺服器800G/1.6T拉貨"
+        ],
+        "risks": [
+          "私募稀釋股東權益疑慮",
+          "InP基板全球供應偏緊",
+          "規模較同業小，競爭激烈",
+          "由虧轉盈後估值修正風險"
+        ]
+      }
+    },
+    {
+      "sector": "光通訊",
+      "sc": "s4",
+      "name": "波若威",
+      "code": "3163",
+      "price": 761,
+      "target": null,
+      "pe": 60,
+      "eps": "—",
+      "rating": "謹慎",
+      "edge": "輝達Spectrum-X指定供應商，1.6T量產預計2026年，輝達砸40億美元卡位光通訊族群利多",
+      "risk": "處置股，本益比偏貴，籌碼凌亂",
+      "updatedAt": "2026-03-25",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "波若威科技股份有限公司",
+          "listed": "TWSE: 3163",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "note": "EPS尚未穩定，處於高成長轉型期"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe": "約60倍（估值偏高）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-25",
+          "support": "700─730元",
+          "resistance": "850─900元",
+          "trend": "2026/03/25上漲7.3%至761元，輝達卡位利多帶動；處置股警示，法人勿追"
+        },
+        "ratings": [],
+        "catalysts": [
+          "輝達Spectrum-X InfiniBand光模組",
+          "1.6T量產",
+          "輝達40億美元卡位Coherent/Lumentum間接利好"
+        ],
+        "risks": [
+          "處置股限制",
+          "籌碼凌亂",
+          "本益比貴"
+        ]
+      }
+    },
+    {
+      "sector": "光通訊",
+      "sc": "s4",
+      "name": "華星光",
+      "code": "4979",
+      "price": 400,
+      "target": null,
+      "pe": null,
+      "eps": "約6─8元（年度）",
+      "rating": "觀察",
+      "edge": "矽光子代工+CPO封裝，Marvell/AWS供應鏈，產能翻倍，CW Laser適合AI/資料中心能效需求",
+      "risk": "多次注意股，籌碼凌亂",
+      "updatedAt": "2026-03-25",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "華星光通股份有限公司",
+          "listed": "TWSE: 4979",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約6─8元（季度穩健，產能翻倍後放量）",
+          "note": "矽光子代工轉型，晶粒與後段製程同步放量"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "note": "本益比未定，需等量產確認"
+        },
+        "technical": {
+          "updatedAt": "2026-03-25",
+          "support": "380─400元",
+          "resistance": "450─490元",
+          "trend": "2026/03/25上漲5.4%至400元，注意股後籌碼凌亂，觀察整理"
+        },
+        "ratings": [],
+        "catalysts": [
+          "Marvell矽光子訂單",
+          "AWS CPO封裝訂單",
+          "產能翻倍後營收放量"
+        ],
+        "risks": [
+          "注意股限制",
+          "籌碼不穩",
+          "量產進度不透明"
+        ]
+      }
+    },
+    {
+      "sector": "光通訊",
+      "sc": "s4",
+      "name": "IET-KY",
+      "code": "4971",
+      "price": 453,
+      "target": null,
+      "pe": null,
+      "eps": "2025全年1.65元（由虧轉盈），2026E持續成長",
+      "rating": "觀察",
+      "edge": "磷化銦（InP）磊晶核心供應商，2026/02月營收年增43%，砷化鎵/磷化銦/銻化鎵多材料布局，InP基板缺貨漲價直接受惠，法人點名磷化銦概念股",
+      "risk": "KY股流動性較低，規模較聯亞小，EPS恢復時程仍不確定",
+      "updatedAt": "2026-03-25",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "英特磊科技股份有限公司（IET-KY）",
+          "listed": "TWSE: 4971（KY股）",
+          "hq": "美國德州（總廠）",
+          "business": "GaAs pHEMT磊晶、InP HBT磊晶、GaSb紅外線材料磊晶",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2024": "-2.85元（虧損）",
+          "eps2025Q4": "1.56元（季增105%）",
+          "eps2025": "1.65元（由虧轉盈）",
+          "revenue2026Feb": "1.11億元（月減0.19%，年增43%）",
+          "revenue2026YTD": "2.23億元（年增26.44%）",
+          "revenue2025Full": "10.80億元",
+          "note": "AI光通訊InP需求帶動，磷化銦基板缺貨漲價3─5%直接受惠"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "note": "EPS恢復初期，尚無正式分析師目標價；成長確定性需後續財報驗證"
+        },
+        "technical": {
+          "updatedAt": "2026-03-25",
+          "support": "420─440元",
+          "resistance": "490─530元",
+          "trend": "2026/03/25上漲3.2%至453元，InP磷化銦題材帶動，盤中一度觸漲停"
+        },
+        "ratings": [],
+        "catalysts": [
+          "InP基板缺貨漲價3─5%直接受惠",
+          "AI光通訊磷化銦需求爆發",
+          "由虧轉盈後EPS持續成長",
+          "CPO市場爆發帶動上游材料需求"
+        ],
+        "risks": [
+          "KY股流動性偏低",
+          "規模較小競爭力有限",
+          "EPS恢復時程不確定",
+          "InP產能擴張速度是否跟上需求"
+        ]
+      }
+    },
+    {
+      "sector": "散熱電源",
+      "sc": "s5",
+      "name": "台達電",
+      "code": "2308",
+      "price": 1555.0,
+      "target": 800,
+      "pe": 18,
+      "eps": "約13─16元（2026E；電源管理+散熱雙主軸）",
+      "rating": "買進",
+      "edge": "AI伺服器電源+散熱一站式；IGBT/SiC電動車電源；400V/800V高壓電動車平台受惠；外資穩定推薦",
+      "risk": "估值偏高，地緣政治影響海外訂單",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "台達電子工業股份有限公司",
+          "listed": "TWSE: 2308",
+          "marketCap": "約新台幣1.6兆元",
+          "founded": "1971年",
+          "hq": "台灣新北市",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約33─42元（多家外資預估區間）",
+          "grossMargin": "約28─30%",
+          "aiDataCenterPct": "AI資料中心電源佔比持續提升，已超過30%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約15─20倍（以EPS 38元中位數計）",
+          "targetPriceConsensus": "約800─1,100元（差異大，視AI佔比成長速度）",
+          "upside": "約28%（至目標800元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約1394.8元",
+          "ma60": "約1211.8元",
+          "support": "1150.0─1200.0元（近20日低點估算）",
+          "resistance": "1500.0─1550.0元（近20日高點估算）",
+          "rsi14": "約66.9（自動計算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 66.9 中性"
+        },
+        "ratings": [
+          {
+            "institution": "高盛",
+            "rating": "買進",
+            "target": "1,000元（長線）",
+            "date": "2026-01"
+          },
+          {
+            "institution": "摩根大通",
+            "rating": "增持",
+            "target": "800元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "花旗",
+            "rating": "買進",
+            "target": "750元",
+            "date": "2026-02"
+          }
+        ],
+        "catalysts": [
+          "AI伺服器電源需求持續爆發",
+          "液冷電源解決方案市占擴大",
+          "EV充電樁業務成長"
+        ],
+        "risks": [
+          "估值偏高相較同業",
+          "高功率電源良率與交期挑戰",
+          "美中貿易政策"
+        ]
+      }
+    },
+    {
+      "sector": "散熱電源",
+      "sc": "s5",
+      "name": "奇鋐",
+      "code": "3017",
+      "price": 2295.0,
+      "target": 2200,
+      "pe": 25,
+      "eps": "約81─93元（2026E；大咖投顧目標價1950元以25倍PE計EPS 78.1元；龍頭券商最新EPS上修至93.14元）",
+      "rating": "首選",
+      "edge": "液冷散熱全球龍頭；GB300/VR200雙主軸；Google TPU第2大水冷客戶（2026Q3供貨份額40─45%，約100億元營收）；越南廠2026Q2月產能升至75萬組；兩相式液冷技術布局下一代（效率提升15%）；大咖投顧EPS 78.1元、龍頭券商EPS 93.14元",
+      "risk": "2025基期高，估值已反映大部分成長；VR200首批出貨時程不確定；短線高達30倍PE有修正壓力",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "奇鋐科技股份有限公司",
+          "listed": "TWSE: 3017",
+          "marketCap": "約新台幣6,100億元",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約81─93元（大和1840元/25倍→EPS65.11元；大咖投顧78.1元；龍頭券商93.14元，目標2780元；長線估計EPS 118.4元）",
+          "grossMargin": "約31─32.9%（2026預估；液冷高毛利產品組合優化）",
+          "liquidCooling": "液冷散熱模組佔比持續上升，2026年上看50%",
+          "eps2025actual": "約48.5元（2025全年；Q1 2026Q1 EPS預估20.37元）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約22─25倍",
+          "targetPriceConsensus": "1950─2780元（大咖投顧1950元；龍頭券商2780元；大和1840元；長線最高2400元）",
+          "upside": "約25%（至目標2400元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "ma20": "約1884.2元",
+          "ma60": "約1606.8元",
+          "support": "1600.0─1650.0元（近20日低點估算）",
+          "resistance": "2200.0─2250.0元（近20日高點估算）",
+          "rsi14": "約68.4（自動計算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 68.4 中性"
+        },
+        "ratings": [
+          {
+            "institution": "龍頭券商投顧（國內）",
+            "rating": "買進",
+            "target": "2,780元",
+            "date": "2026-03",
+            "note": "EPS 93.14元，VR200/GB300雙主軸"
+          },
+          {
+            "institution": "大咖投顧（國內）",
+            "rating": "買進",
+            "target": "1,950元",
+            "date": "2026-01",
+            "note": "EPS 78.1元，Google TPU第2大客戶"
+          },
+          {
+            "institution": "大和資本 (Daiwa)",
+            "rating": "優於大盤",
+            "target": "1,840元",
+            "date": "2025-10",
+            "note": "EPS 65.11元，越南廠擴產"
+          },
+          {
+            "institution": "摩根大通 (JPMorgan)",
+            "rating": "優於大盤",
+            "target": "—（受邀CEO-CFO Conference）",
+            "date": "2026-03"
+          }
+        ],
+        "catalysts": [
+          "GB300 2026Q1進入放量，散熱單價較GB200成長20%",
+          "Google TPU V8水冷板─2026Q3起供應，初期市占40─45%",
+          "VR200全液冷架構─2026H2全面導入，需求倍增",
+          "越南廠2026Q2月產能升至75萬組（年增50%）",
+          "兩相式液冷（效率+15%）─與多家CSP共同開發中",
+          "ASIC水冷訂單（AWS/Google/Meta/Microsoft）─ 2027年有望超越GPU佔比"
+        ],
+        "risks": [
+          "2025基期已高，EPS成長率放緩",
+          "VR200量產時程與良率爬坡",
+          "美國設廠成本壓力（已決定不赴美，專注越南）",
+          "高本益比（25倍）遇市場修正快速下跌",
+          "兩相式液冷仍處驗證階段，商轉時程不確定"
+        ]
+      }
+    },
+    {
+      "sector": "散熱電源",
+      "sc": "s5",
+      "name": "雙鴻",
+      "code": "3324",
+      "price": 1080,
+      "target": 1100,
+      "pe": 19,
+      "eps": "約57.5元（2026E；大咖投顧預估；年增約92.6%）",
+      "rating": "買進",
+      "edge": "水冷散熱第二梯隊核心；GB300/VR200均熱片與冷板供應；Meta CDU次要供應商；Supermicro主要水冷板供應；2026E EPS年增92.6%為四大散熱廠中成長率最高",
+      "risk": "規模與客戶深度不及奇鋐；本益比19倍略高；AMD均熱片進入晶片端散熱競爭激烈",
+      "updatedAt": "2026-03-25",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "雙鴻科技股份有限公司",
+          "listed": "TWSE: 3324",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約57.5元（大咖投顧預估；年增約92.6%；四大廠中成長率最高）",
+          "grossMargin": "約27─28%（2026預估）",
+          "eps2025actual": "約29.9元（2025預估）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約18─20倍（較奇鋐便宜）",
+          "targetPriceConsensus": "720─1100元（法人共識區間）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-25",
+          "support": "1,000─1,050元",
+          "resistance": "1,150─1,200元",
+          "trend": "整理中，EPS成長確定性高"
+        },
+        "ratings": [
+          {
+            "institution": "大咖投顧（國內）",
+            "rating": "買進",
+            "target": "—（以EPS57.5元×19倍估）",
+            "date": "2026-01"
+          },
+          {
+            "institution": "外資視角（綜合）",
+            "rating": "積極看好",
+            "target": "—",
+            "date": "2026-01",
+            "note": "水冷/液冷加速滲透率，雙鴻為技術先行者"
+          }
+        ],
+        "catalysts": [
+          "GB300水冷板放量（Supermicro主要供應商）",
+          "Meta CDU次要供應商，未來追加訂單可期",
+          "泰國廠月產能2025Q3達30萬片，支撐2026成長",
+          "VR200均熱片─與奇鋐同為MCCP布局廠"
+        ],
+        "risks": [
+          "奇鋐競爭加劇",
+          "毛利率改善空間有限"
+        ]
+      }
+    },
+    {
+      "sector": "散熱電源",
+      "sc": "s5",
+      "name": "健策",
+      "code": "3653",
+      "price": 3895.0,
+      "target": 1800,
+      "pe": 28,
+      "eps": "約45─50元（2026E；VR200 Lid+MCL布局爆發可期）",
+      "rating": "首選",
+      "edge": "Vera Rubin（VR200）均熱片（Lid）+微通道蓋板（MLCP）布局最領先；散熱族群首選；ASIC客製化Lid（Google/AWS/Meta）鍍金技術護城河；Rubin Ultra（2027）功耗2300W MCL為最佳散熱方案，健策已率先布局；國內龍頭券商列散熱族群首選",
+      "risk": "MLCP量產驗證難度高，液體滲漏等技術挑戰；VR200時程若延誤影響2026業績；規模較奇鋐小",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-26",
+        "basic": {
+          "fullName": "健策精密工業股份有限公司",
+          "listed": "TWSE: 3653",
+          "updatedAt": "2026-03-26"
+        },
+        "financial": {
+          "updatedAt": "2026-03-26",
+          "eps2025E": "約8.6元（大咖投顧預估）",
+          "eps2026E": "約17.8元（大咖投顧預估，年增107%）；龍頭券商預估更高，看好Lid/MCL單價3─7倍溢價",
+          "grossMargin": "約35─40%（Lid高毛利產品帶動）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-26",
+          "pe2026E": "約25─30倍（散熱族群首選溢價合理）",
+          "targetPriceConsensus": "1,600─2,000元",
+          "upside": "約38%（至目標1800元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 63.2 中性",
+          "ma20": "約3498.5元",
+          "ma60": "約2997.3元",
+          "rsi14": "約63.2（自動計算）",
+          "support": "2800.0─2850.0元（近20日低點估算）",
+          "resistance": "3900.0─3950.0元（近20日高點估算）"
+        },
+        "ratings": [
+          {
+            "institution": "龍頭券商投顧（國內）",
+            "rating": "首選",
+            "target": "—（散熱族群首選）",
+            "date": "2026-03",
+            "note": "VR200 Lid+MLCP布局最領先"
+          },
+          {
+            "institution": "大咖投顧（國內）",
+            "rating": "買進",
+            "target": "—（EPS17.8元）",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "VR200 Lid（均熱片）─雙晶片設計+鍍薄金防腐，單價較G200/300成長數倍",
+          "MLCP（微通道蓋板）─被視為冷革命3.0，單價為水冷板3─7倍",
+          "ASIC Lid鍍金技術─Google TPU/AWS Trainium/Meta MTIA均採用",
+          "Rubin Ultra 2027年全面量產，MLCP成為標配"
+        ],
+        "risks": [
+          "MLCP驗證難度高（液體滲漏、金屬微粒沈積、晶片整合密合度）",
+          "VR200量產時程若延誤，影響2026H2業績",
+          "規模較奇鋐小，客戶集中度較高",
+          "兩相式液冷競爭者追入"
+        ]
+      }
+    },
+    {
+      "sector": "散熱電源",
+      "sc": "s5",
+      "name": "高力",
+      "code": "8996",
+      "price": 860.0,
+      "target": null,
+      "pe": 33,
+      "eps": "約18元",
+      "rating": "觀察",
+      "edge": "輝達新散熱架構受惠，EPS成長106%",
+      "risk": "追高危險，本益比已高",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "高力熱處理工業股份有限公司",
+          "listed": "TWSE: 8996",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約18元（年增106%）",
+          "grossMargin": "約30─35%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約33倍"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "690.0─700.0元（近20日低點估算）",
+          "resistance": "940.0─950.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 56.4 中性",
+          "ma20": "約847.0元",
+          "ma60": "約755.5元",
+          "rsi14": "約56.4（自動計算）"
+        },
+        "ratings": [],
+        "catalysts": [
+          "輝達Blackwell散熱架構更新",
+          "熱管/均溫板需求"
+        ],
+        "risks": [
+          "小型股流動性",
+          "本益比偏高"
+        ]
+      }
+    },
+    {
+      "sector": "記憶體",
+      "sc": "s6",
+      "name": "旺宏",
+      "code": "2337",
+      "price": 137.0,
+      "target": 300,
+      "pe": null,
+      "eps": "由虧轉盈（2026E轉正；具體數字待法說）",
+      "rating": "首選",
+      "edge": "NOR Flash / eMMC 市佔51%；AI Edge裝置（AI眼鏡/手機/機器人）儲存需求；大摩+凱基升評；注意：旺宏主體為 NOR Flash 特殊記憶體，非DRAM族群",
+      "risk": "2026/03/24起再度被列處置股（延至4/8）；股價受限流動性；成長確定性低於群聯",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "旺宏電子股份有限公司",
+          "listed": "TWSE: 2337",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "由虧轉盈，預估10─15元（含eMMC補漲）",
+          "note": "2026/03/25跌幅8%+，短線修正中"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "targetPriceConsensus": "250─320元（大摩、凱基均升評）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "note": "2026/03/25盤中跌幅超過8%，短線修正",
+          "support": "89.0─90.0元（近20日低點估算）",
+          "resistance": "150.0─160.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 64.8 中性",
+          "ma20": "約120.1元",
+          "ma60": "約86.0元",
+          "rsi14": "約64.8（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "摩根士丹利",
+            "rating": "增持（升評）",
+            "target": "300元",
+            "date": "2026-03"
+          },
+          {
+            "institution": "凱基",
+            "rating": "買進（升評）",
+            "target": "280元",
+            "date": "2026-03"
+          }
+        ],
+        "catalysts": [
+          "eMMC供給缺口持續",
+          "AI Edge MCU/儲存需求",
+          "由虧轉盈題材"
+        ],
+        "risks": [
+          "2026/03/24起處置股（至4/8），交易受限",
+          "NOR Flash市場中國競爭加劇",
+          "AI Edge題材雖強但具體訂單量不確定"
+        ]
+      }
+    },
+    {
+      "sector": "記憶體",
+      "sc": "s6",
+      "name": "南亞科",
+      "code": "2408",
+      "price": 249.0,
+      "target": 298,
+      "pe": null,
+      "eps": "約46.76元（2026E；惟Q4財報略低於預期）",
+      "rating": "持有",
+      "edge": "DDR4/DDR5超級週期受惠；2026H1供需缺口支撐；殖利率防禦性強",
+      "risk": "Q4 EPS 3.58元低於法人預估3.7─4元；今年漲幅趨緩；3/24族群集體大跌6.28%；DRAM景氣週期性",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "南亞科技股份有限公司",
+          "listed": "TWSE: 2408",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約46.76元",
+          "grossMargin": "約45─50%",
+          "eps2025Q4": "3.58元（低於法人預期3.7─4元）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約5─6倍（以EPS計）",
+          "pb": "本淨比約2.5─3倍（歷史高位）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "200.0─210.0元（近20日低點估算）",
+          "resistance": "270.0─280.0元（近20日高點估算）",
+          "trend": "站上MA20，MA60仍承壓；RSI 53.8 中性",
+          "ma20": "約247.1元",
+          "ma60": "約248.1元",
+          "rsi14": "約53.8（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "摩根士丹利",
+            "rating": "中性（降評）",
+            "target": "265元",
+            "date": "2026-02"
+          },
+          {
+            "institution": "凱基",
+            "rating": "持有",
+            "target": "298元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "DDR4/DDR5供需缺口",
+          "AI伺服器記憶體容量倍增需求"
+        ],
+        "risks": [
+          "Q4 EPS 3.58元低於預期，年增趨緩",
+          "漲幅趨緩，報價上升幅度不如2025年",
+          "族群3/24大跌6.28%",
+          "中國海力士/美光競爭加劇"
+        ]
+      }
+    },
+    {
+      "sector": "記憶體",
+      "sc": "s6",
+      "name": "華邦電",
+      "code": "2344",
+      "price": 102.0,
+      "target": 140,
+      "pe": null,
+      "eps": "約16.57元",
+      "rating": "持有",
+      "edge": "利基型DRAM（LPDDR4/CUBE）；AI Edge終端裝置（AI眼鏡/手機/工業機器人）儲存核心受惠；納入元大台灣50成分股",
+      "risk": "3/24族群集體大跌7.81%；本淨比高位修正風險；DDR5替代DDR4衝擊；成長確定性偏低",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "華邦電子股份有限公司",
+          "listed": "TWSE: 2344",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "eps2026E": "約16.57元",
+          "grossMargin": "約30─35%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "pe2026E": "約6─7倍",
+          "pb": "約2倍（高位）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "97.0─98.0元（近20日低點估算）",
+          "resistance": "110.0─120.0元（近20日高點估算）",
+          "trend": "跌破MA20，短線偏弱；RSI 47.0 中性",
+          "ma20": "約111.4元",
+          "ma60": "約105.2元",
+          "rsi14": "約47.0（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "元大",
+            "rating": "持有",
+            "target": "140元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "台灣50成分股資金追蹤",
+          "利基DRAM供給缺口"
+        ],
+        "risks": [
+          "本淨比偏高",
+          "DDR5替代DDR4的衝擊"
+        ],
+        "edge": "Edge AI模型小型化後，華邦電CUBE/LPDDR4/NOR Flash是最適合裝載的晶片，AI眼鏡/AI手機/工業機器人等Edge AI終端將拉動利基型DRAM需求"
+      }
+    },
+    {
+      "sector": "記憶體",
+      "sc": "s6",
+      "name": "群聯",
+      "code": "8299",
+      "price": 1735.0,
+      "target": 1900,
+      "pe": 22,
+      "eps": "2025全年EPS 41.98元（年增54%）；2026E 預估78.56元（本土一哥上修），法人共識73─79元",
+      "rating": "首選",
+      "edge": "NAND控制器全球龍頭；AI SSD─NVIDIA開發人工智慧固態硬碟合作夥伴；企業級SSD結構性缺貨（NAND可能缺貨十年）；2026年2月營收年增169%；6位分析師全數買進，共識目標1689元；2025Q4 EPS 22.08元（季增105%）",
+      "risk": "2025高基期（EPS 41.98元），2026成長率需進一步確認；股價2025年已漲超2倍，追高風險；部分分析師給投賣出訊號（技術面）",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-26",
+        "basic": {
+          "fullName": "群聯電子股份有限公司",
+          "listed": "TWO: 8299",
+          "updatedAt": "2026-03-26"
+        },
+        "financial": {
+          "updatedAt": "2026-03-26",
+          "eps2025": "41.98元（2025全年實績；Q4:22.08元，季增105%）",
+          "eps2026E": "約78.56元（本土金控一哥上修；以21倍PE計目標1650元）；法人共識73─79元",
+          "eps2027E": "約81.66元（本土一哥預估）",
+          "revenue2025": "726.64億元（2025全年）",
+          "revenue2026FebYoY": "年增169.43%（2026年2月；累計年增178.23%）",
+          "grossMargin": "約40%以上（Q4毛利率40.3%；NAND缺貨+議價能力提升）",
+          "nandNote": "企業級SSD結構性缺貨；NAND控制晶片出貨量年增84%；NVIDIA AI SSD合作開發夥伴"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-26",
+          "pe2026E": "約22倍（以EPS 78.56元計）",
+          "targetPriceConsensus": "6位分析師平均目標1,689元（investing.com統計）；本土一哥目標1,650元（21倍PE）；高估1,689元，低估594元",
+          "upside": "約─2─10%（以現價1735元至目標1689─1900元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "trend": "2025年股價從406元漲至最高2465元（漲幅超6倍）；2026年高位震盪，外資與自營同步加碼，投信持續調節"
+        },
+        "ratings": [
+          {
+            "institution": "本土金控一哥投顧",
+            "rating": "買進",
+            "target": "1,650元（EPS 78.56元×21倍）",
+            "date": "2025-12",
+            "note": "大幅上修2026 EPS 56%至78.56元"
+          },
+          {
+            "institution": "FactSet統計（6位分析師）",
+            "rating": "全數買進",
+            "target": "均值1,689元",
+            "date": "2026-03"
+          }
+        ],
+        "catalysts": [
+          "NVIDIA AI SSD─伺服器間「類記憶體層」合作開發",
+          "企業級SSD放量（CSP大舉採購）",
+          "NAND結構性缺貨（CEO預言可能缺貨十年）",
+          "PCIe Gen5 SSD控制器進入量產期",
+          "AI推論拉動企業級儲存需求倍增",
+          "新產能最快2027年才能開出，2026年供應仍吃緊"
+        ],
+        "risks": [
+          "2025年EPS 41.98元高基期，2026年成長率需確認",
+          "股價2025年漲幅超6倍，估值透支風險",
+          "若NAND原廠積極擴產，供需缺口可能縮窄",
+          "部分技術指標顯示短線賣出訊號（2026/03/04 Investing.com）"
+        ]
+      }
+    },
+    {
+      "sector": "記憶體",
+      "sc": "s6",
+      "name": "力積電",
+      "code": "6770",
+      "price": 65.0,
+      "target": 80,
+      "pe": null,
+      "eps": "2025全年EPS -1.86元（持續虧損）；美光合作轉機，2026轉正可期",
+      "rating": "觀察",
+      "edge": "美光569億元合作買廠案─消除財務風險，短期轉機明確；成熟製程代工（DRAM/邏輯）；2026年2月營收年增12%，復甦中",
+      "risk": "2025全年EPS -1.86元（連續兩年虧損）；尚未確認EPS轉正時程；成熟製程中國競爭加劇；財務結構仍需改善",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-26",
+        "basic": {
+          "fullName": "力晶積成電子製造股份有限公司",
+          "listed": "TWSE: 6770",
+          "updatedAt": "2026-03-26"
+        },
+        "financial": {
+          "updatedAt": "2026-03-26",
+          "eps2024": "-1.64元",
+          "eps2025": "-1.86元（2025全年；Q4:-0.15元，仍虧損）",
+          "revenue2026FebYoY": "年增12.01%（2026年2月；復甦中）",
+          "micronDeal": "美光569億元購廠案─解除財務風險，短期最大轉機",
+          "grossMargin": "約20─25%（成熟製程，偏低）"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-26",
+          "note": "虧損中，無法用PE估值；美光合作帶入估值重評等空間",
+          "targetPriceConsensus": "法人尚未廣泛更新目標價；觀察美光合作細節落地"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "trend": "跌破MA20，短線偏弱；RSI 50.8 中性",
+          "ma20": "約67.3元",
+          "ma60": "約59.3元",
+          "rsi14": "約50.8（自動計算）",
+          "support": "58.0─59.0元（近20日低點估算）",
+          "resistance": "75.0─76.0元（近20日高點估算）"
+        },
+        "ratings": [
+          {
+            "institution": "市場觀察",
+            "rating": "觀察",
+            "target": "80元（轉正後重新評估）",
+            "date": "2026-03",
+            "note": "等待EPS轉正確認，美光合作細節"
+          }
+        ],
+        "catalysts": [
+          "美光569億元購廠合作─短期解除財務風險，長期技術升級",
+          "成熟製程需求復甦（2026年2月營收年增12%）",
+          "DRAM景氣週期上行"
+        ],
+        "risks": [
+          "2025全年EPS -1.86元，連續兩年虧損",
+          "EPS轉正時程不確定",
+          "美光合作細節執行風險",
+          "中國SMIC等成熟製程競爭加劇",
+          "財務槓桿偏高"
+        ]
+      }
+    },
+    {
+      "sector": "PCB/載板",
+      "sc": "s7",
+      "name": "景碩",
+      "code": "3189",
+      "price": 367.0,
+      "target": 370,
+      "pe": null,
+      "eps": "—",
+      "rating": "買進",
+      "edge": "ABF缺口受惠，基期最低爆發性最強；外資缺貨至2030報告直接利多；2026/03/25強勢多頭排列",
+      "risk": "規模小於欣興，訂單能見度有限",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "景碩科技股份有限公司",
+          "listed": "TWSE: 3189",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "note": "轉型AI ABF載板中，EPS轉正可期",
+          "grossMargin": "約20─25%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "targetPriceConsensus": "340─390元",
+          "note": "成長爆發性最強但規模小"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "250.0─260.0元（近20日低點估算）",
+          "resistance": "370.0─380.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 64.6 中性",
+          "ma20": "約321.5元",
+          "ma60": "約244.1元",
+          "rsi14": "約64.6（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "摩根大通",
+            "rating": "買進",
+            "target": "370元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "ABF載板供給缺口擴大",
+          "AI晶片封裝載板需求"
+        ],
+        "risks": [
+          "規模較小競爭力",
+          "ABF景氣週期性"
+        ]
+      }
+    },
+    {
+      "sector": "PCB/載板",
+      "sc": "s7",
+      "name": "南電",
+      "code": "8046",
+      "price": 577.0,
+      "target": 655,
+      "pe": null,
+      "eps": "—",
+      "rating": "買進",
+      "edge": "800G BT載板台灣核心受惠；外資缺貨至2030報告激勵；AI伺服器PCB規格升級主力廠；潛在上行空間達70%",
+      "risk": "產能擴充時程不確定；近期股價劇烈修正（跌幅達8%+）；高估值追高風險",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "南亞電路板股份有限公司",
+          "listed": "TWSE: 8046",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "note": "EPS復甦中，800G BT載板毛利率高",
+          "grossMargin": "約30─35%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "targetPriceConsensus": "600─700元",
+          "upside": "約70%（至目標655元）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "note": "2026/03/25盤中跌幅超過8%，短線承壓",
+          "support": "410.0─420.0元（近20日低點估算）",
+          "resistance": "560.0─570.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 63.4 中性",
+          "ma20": "約510.1元",
+          "ma60": "約388.5元",
+          "rsi14": "約63.4（自動計算）"
+        },
+        "ratings": [
+          {
+            "institution": "凱基",
+            "rating": "買進",
+            "target": "655元",
+            "date": "2026-01"
+          }
+        ],
+        "catalysts": [
+          "800G BT載板量產放量",
+          "AI伺服器PCB規格升級"
+        ],
+        "risks": [
+          "產能擴充時程",
+          "短線股價修正劇烈"
+        ]
+      }
+    },
+    {
+      "sector": "PCB/載板",
+      "sc": "s7",
+      "name": "欣興",
+      "code": "3037",
+      "price": 517.0,
+      "target": null,
+      "pe": null,
+      "eps": "—",
+      "rating": "買進",
+      "edge": "ABF載板台灣龍頭；外資最新報告：高階ABF載板缺貨延伸至2030年，欣興為核心受惠；2026/03/25強勢上漲",
+      "risk": "處置股警示限制流動性；ABF景氣週期性；資本支出壓力大",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "欣興電子股份有限公司",
+          "listed": "TWSE: 3037",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "note": "ABF載板台灣龍頭，EPS復甦中",
+          "grossMargin": "約25─30%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "note": "無分析師正式目標價（處置股期間）"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "370.0─380.0元（近20日低點估算）",
+          "resistance": "570.0─580.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 60.0 中性",
+          "ma20": "約489.0元",
+          "ma60": "約362.9元",
+          "rsi14": "約60.0（自動計算）"
+        },
+        "ratings": [],
+        "catalysts": [
+          "ABF載板2027─2028缺口擴大",
+          "AI晶片載板規格升級"
+        ],
+        "risks": [
+          "處置股限制",
+          "ABF景氣週期性",
+          "資本支出壓力"
+        ]
+      }
+    },
+    {
+      "sector": "PCB/載板",
+      "sc": "s7",
+      "name": "台光電",
+      "code": "2383",
+      "price": 2980.0,
+      "target": null,
+      "pe": null,
+      "eps": "—",
+      "rating": "觀察",
+      "edge": "高階HDI/CCL材料壟斷，市值突破兆元，AI伺服器PCB材料核心受惠",
+      "risk": "一年已大漲數倍，追高風險極高，短線修正壓力大",
+      "updatedAt": "2026-03-26",
+      "detail": {
+        "updatedAt": "2026-03-25",
+        "basic": {
+          "fullName": "台光電子材料股份有限公司",
+          "listed": "TWSE: 2383",
+          "updatedAt": "2026-03-25"
+        },
+        "financial": {
+          "updatedAt": "2026-03-25",
+          "note": "CCL材料高毛利，壟斷地位護城河高",
+          "grossMargin": "約40─45%"
+        },
+        "valuation": {
+          "updatedAt": "2026-03-25",
+          "note": "本益比偏高，市值兆元後追高風險大"
+        },
+        "technical": {
+          "updatedAt": "2026-03-26",
+          "support": "2100.0─2150.0元（近20日低點估算）",
+          "resistance": "2900.0─2950.0元（近20日高點估算）",
+          "trend": "多頭排列（站上MA20/MA60）；RSI 68.9 中性",
+          "ma20": "約2567.5元",
+          "ma60": "約2036.1元",
+          "rsi14": "約68.9（自動計算）"
+        },
+        "ratings": [],
+        "catalysts": [
+          "AI伺服器高頻高速CCL需求",
+          "HDI高層板市占提升"
+        ],
+        "risks": [
+          "估值已高（歷史大漲後）",
+          "CCL供給競爭者追入",
+          "短線修正壓力"
+        ]
+      }
+    }
+  ]
+}
